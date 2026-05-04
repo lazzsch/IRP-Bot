@@ -27,7 +27,7 @@ I went through that pain, built this system to help myself, and decided to share
 
 ## How it works (high level)
 
-1. You open `https://portal.irishimmigration.ie/.../reschedule_appointment/`.
+1. You open `https://portal.irishimmigration.ie/en/reschedule_appointment/`.
 2. The setup wizard asks for language, minimum date, booked date, and automation options.
 3. After start, the bot navigates intro -> location -> date calendar.
 4. It scans months and days in your allowed range.
