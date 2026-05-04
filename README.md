@@ -62,6 +62,14 @@ Raw userscript URL:
 
 `https://raw.githubusercontent.com/lazzsch/IRP-Bot/main/userscript/IRP-Bot-Lite.user.js`
 
+## Direct downloads
+
+- Extension ZIP (ready to install): `https://github.com/lazzsch/IRP-Bot/raw/main/dist/IRP-Bot-V3-extension-v3.0.0.zip`
+- Userscript Lite ZIP: `https://github.com/lazzsch/IRP-Bot/raw/main/dist/IRP-Bot-Lite-userscript-v0.1.0.zip`
+- Userscript Lite direct install: `https://raw.githubusercontent.com/lazzsch/IRP-Bot/main/userscript/IRP-Bot-Lite.user.js`
+- Install guide (EN): `https://github.com/lazzsch/IRP-Bot/blob/main/docs/install-guide.html`
+- Install guide (PT-BR): `https://github.com/lazzsch/IRP-Bot/blob/main/docs/install-guide-pt.html`
+
 ## Quick usage
 
 1. Open the IRP reschedule page.
