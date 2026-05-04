@@ -42,7 +42,7 @@ I went through that pain, built this system to help myself, and decided to share
 2. Open `chrome://extensions/`.
 3. Enable `Developer mode`.
 4. Click `Load unpacked`.
-5. Select this project folder: `C:\Users\walmo\Downloads\irp-bot-v3`.
+5. Select the extracted/cloned project folder on your computer (for example: `IRP-Bot`).
 
 ## Hybrid distribution (for faster user onboarding)
 
