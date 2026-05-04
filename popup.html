@@ -1,0 +1,219 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <div class="app">
+    <section class="hero">
+      <div class="eyebrow">IRP BOT V3</div>
+      <h1 id="heroTitle">Guided session</h1>
+      <div id="heroSubtitle" class="small">Live extension dashboard</div>
+      <p id="sessionSummary" class="hero-summary">Waiting for data from the extension.</p>
+      <div class="status-row">
+        <span id="phasePill" class="pill">Ready</span>
+        <span id="livePill" class="pill sky">No update yet</span>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="card-head">
+        <div>
+          <h2 id="sessionStatusHeading">Session status</h2>
+          <div id="sessionTitle" class="title">Ready</div>
+          <div id="sessionStatusSub" class="small">Track the bot's current stage</div>
+        </div>
+        <div id="sessionUpdated" class="subtle">--</div>
+      </div>
+
+      <div class="session-grid">
+        <div class="metric">
+          <span id="labelLocation">Location</span>
+          <strong id="locationValue">--</strong>
+        </div>
+        <div class="metric">
+          <span id="labelMinimumDate">Search minimum date</span>
+          <strong id="minimumDateValue">--</strong>
+        </div>
+        <div class="metric">
+          <span id="labelSelectedDate">Booked date</span>
+          <strong id="selectedDateValue">--</strong>
+        </div>
+        <div class="metric">
+          <span id="labelSearchLimit">Search limit</span>
+          <strong id="searchLimitValue">--</strong>
+        </div>
+        <div class="metric">
+          <span id="labelMonth">Active month</span>
+          <strong id="monthValue">--</strong>
+        </div>
+        <div class="metric">
+          <span id="labelDay">Active day</span>
+          <strong id="dayValue">--</strong>
+        </div>
+        <div class="metric">
+          <span id="labelTime">Time</span>
+          <strong id="timeValue">--</strong>
+        </div>
+      </div>
+
+      <div id="searchHint" class="hint">
+        Set the search minimum date and the booked date below to make the search limit visible.
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="card-head">
+        <div>
+          <h2 id="progressHeading">Progress</h2>
+          <div id="progressSub" class="small">The current stage updates in real time</div>
+        </div>
+        <span id="sessionScopePill" class="pill warn">per session</span>
+      </div>
+
+      <div class="progress-wrap">
+        <div id="progressBar" class="progress-bar"></div>
+      </div>
+
+      <div id="stageList" class="stage-list"></div>
+      <div id="checkpointList" class="chip-list"></div>
+    </section>
+
+    <section class="card">
+      <div class="card-head">
+        <div>
+          <h2 id="configHeading">Settings</h2>
+          <div id="configSub" class="small">Language first, then the search window, automations, and advanced timing</div>
+        </div>
+        <span id="configScopePill" class="pill good">save</span>
+      </div>
+
+      <div class="settings">
+        <div id="controlBanner" class="prompt-banner">
+          <strong id="controlBannerTitle">Control in the side panel</strong>
+          <p id="controlBannerBody">Use the button in the page side panel to start or stop the bot.</p>
+        </div>
+
+        <div id="missingDateBanner" class="prompt-banner" hidden>
+          <strong id="missingDateBannerTitle">Enter the dates</strong>
+          <p id="missingDateBannerBody">The minimum date is the search floor; the booked date is the most recent reservation already saved on the site.</p>
+        </div>
+
+        <section class="settings-block">
+          <div class="settings-block-head">
+            <div>
+              <h3 id="languageSectionTitle">Language</h3>
+              <p id="languageSectionSub">Choose the assistant language before saving the rest.</p>
+            </div>
+          </div>
+
+          <div class="field">
+            <label id="languageLabel" for="language">Language</label>
+            <select id="language" class="field-select">
+              <option value="pt">Portuguese</option>
+              <option value="en">English</option>
+              <option value="es">Spanish</option>
+            </select>
+            <div class="field-note" id="languageHelp">This also controls the setup wizard text.</div>
+          </div>
+        </section>
+
+        <section class="settings-block">
+          <div class="settings-block-head">
+            <div>
+              <h3 id="dateWindowTitle">Search window</h3>
+              <p id="dateWindowSub">Minimum date is the floor. Booked date is the latest reservation already on the site.</p>
+            </div>
+            <span id="dateWindowPill" class="pill sky">dd/mm”</span>
+          </div>
+
+          <div class="field">
+            <label id="minimumDateLabel" for="minimumDate">Search minimum date</label>
+            <input id="minimumDate" type="date" />
+            <div class="field-note" id="minimumDateHelp">First date the bot can consider.</div>
+          </div>
+
+          <div class="field">
+            <label id="selectedDateLabel" for="selectedDate">Booked date</label>
+            <div class="date-action-row">
+              <input id="selectedDate" type="date" />
+              <button id="updateSelectedDate" class="inline-save" type="button">Update date</button>
+            </div>
+            <div class="field-note" id="selectedDateHelp">Most recent date already booked on the site. The bot searches up to the day before.</div>
+          </div>
+        </section>
+
+        <section class="settings-block">
+          <div class="settings-block-head">
+            <div>
+              <h3 id="automationSectionTitle">Automations</h3>
+              <p id="automationSectionSub">Choose what the bot does by itself after it finds a date.</p>
+            </div>
+          </div>
+
+          <label class="toggle-field" for="autoSelectTime">
+            <input id="autoSelectTime" type="checkbox" />
+            <div class="toggle-copy">
+              <strong id="autoSelectTimeLabel">Automatically select time</strong>
+              <span id="autoSelectTimeHelp">When off, you choose the time manually on the page.</span>
+            </div>
+          </label>
+
+          <label class="toggle-field" for="autoContinueReview">
+            <input id="autoContinueReview" type="checkbox" />
+            <div class="toggle-copy">
+              <strong id="autoContinueReviewLabel">Automatically continue on review</strong>
+              <span id="autoContinueReviewHelp">When off, you confirm the review page manually.</span>
+            </div>
+          </label>
+
+          <label class="toggle-field" for="autoFinishAppointment">
+            <input id="autoFinishAppointment" type="checkbox" />
+            <div class="toggle-copy">
+              <strong id="autoFinishAppointmentLabel">Automatically finish</strong>
+              <span id="autoFinishAppointmentHelp">When off, you click Finish manually on the final page.</span>
+            </div>
+          </label>
+        </section>
+
+        <section class="settings-block">
+          <div class="settings-block-head">
+            <div>
+              <h3 id="advancedSectionTitle">Advanced</h3>
+              <p id="advancedSectionSub">Adjust the flow delays if you want more patience between steps.</p>
+            </div>
+          </div>
+
+          <div class="field">
+            <label id="delayLocationLabel" for="delayLocation">Location delay (ms)</label>
+            <input id="delayLocation" type="number" min="500" step="500" />
+          </div>
+
+          <div class="field">
+            <label id="delayCalendarLabel" for="delayCalendar">Calendar delay (ms)</label>
+            <input id="delayCalendar" type="number" min="500" step="500" />
+          </div>
+
+          <div class="field">
+            <label id="delayBackLabel" for="delayBack">Back delay (ms)</label>
+            <input id="delayBack" type="number" min="1000" step="500" />
+          </div>
+        </section>
+
+        <button id="save" class="save">Save changes</button>
+        <div class="footer-note" id="configHint">
+          Language, search window, automations, and advanced timing are split below.
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script src="shared/irp-common.js"></script>
+  <script src="shared/irp-config.js"></script>
+  <script src="shared/popup-texts.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>
+
