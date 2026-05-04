@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IRP Bot V3 - Guia de Instalação</title>
+  <style>
+    :root {
+      --bg: #071426;
+      --card: #0c1f36;
+      --line: #1e3a5f;
+      --text: #e9f2ff;
+      --muted: #9bb6d8;
+      --accent: #28d17c;
+      --accent2: #35b5ff;
+      --warn: #ffd76f;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Segoe UI, Arial, sans-serif;
+      color: var(--text);
+      background: radial-gradient(circle at top right, #143159 0%, var(--bg) 50%);
+      min-height: 100vh;
+      padding: 32px 16px;
+    }
+
+    .wrap {
+      max-width: 980px;
+      margin: 0 auto;
+    }
+
+    .hero {
+      background: linear-gradient(130deg, rgba(53, 181, 255, 0.18), rgba(40, 209, 124, 0.12));
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 24px;
+      margin-bottom: 20px;
+    }
+
+    h1, h2 {
+      margin: 0 0 12px 0;
+    }
+
+    p {
+      margin: 0 0 10px 0;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 16px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 18px;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #041422;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      margin-bottom: 10px;
+    }
+
+    ol {
+      margin: 10px 0 0 18px;
+      padding: 0;
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+
+    .warning {
+      border-left: 4px solid var(--warn);
+      background: rgba(255, 215, 111, 0.08);
+      padding: 12px;
+      border-radius: 8px;
+      color: #ffeeb6;
+      margin-top: 12px;
+    }
+
+    .links a {
+      color: #7fd2ff;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .links a:hover {
+      text-decoration: underline;
+    }
+
+    code {
+      background: rgba(255, 255, 255, 0.08);
+      padding: 2px 6px;
+      border-radius: 5px;
+      color: #d5ecff;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <section class="hero">
+      <h1>IRP Bot V3 - Guia Rápido de Instalação</h1>
+      <p>Escolha a opção mais simples para seus usuários. Use a Chrome Web Store primeiro (quando aprovada) e mantenha o Userscript Lite como plano B.</p>
+    </section>
+
+    <section class="grid">
+      <article class="card">
+        <div class="badge">Opção A (Recomendada)</div>
+        <h2>Chrome Store (Unlisted)</h2>
+        <p>Melhor para usuários leigos quando já estiver aprovado.</p>
+        <ol>
+          <li>Abra o link privado da Chrome Web Store que você compartilhou.</li>
+          <li>Clique em <strong>Adicionar ao Chrome</strong>.</li>
+          <li>Fixe a extensão na barra do navegador.</li>
+          <li>Abra <code>https://portal.irishimmigration.ie/en/reschedule_appointment/</code>.</li>
+          <li>Conclua o assistente inicial e inicie o bot.</li>
+        </ol>
+      </article>
+
+      <article class="card">
+        <div class="badge">Opção B (Rápida)</div>
+        <h2>Tampermonkey + Userscript Lite</h2>
+        <p>Use enquanto a revisão da Chrome Store estiver pendente.</p>
+        <ol>
+          <li>Instale o Tampermonkey na Chrome Web Store.</li>
+          <li>Abra o URL raw do script:
+            <br><code>https://raw.githubusercontent.com/lazzsch/IRP-Bot/main/userscript/IRP-Bot-Lite.user.js</code>
+          </li>
+          <li>Clique em <strong>Install</strong> no Tampermonkey.</li>
+          <li>Abra a página <code>/en/reschedule_appointment/</code>.</li>
+          <li>Configure data mínima e data marcada, depois inicie.</li>
+        </ol>
+      </article>
+    </section>
+
+    <section class="card" style="margin-top:16px;">
+      <h2>Regras importantes</h2>
+      <ol>
+        <li>Use o portal no fluxo em inglês (<code>/en/</code>) para maior estabilidade.</li>
+        <li>Mantenha data mínima e data marcada atualizadas.</li>
+        <li>Quando surgir data melhor, confirme as opções de automação que você ativou.</li>
+      </ol>
+      <div class="warning">
+        Se a configuração parecer errada, recarregue a página e execute o setup novamente antes de iniciar.
+      </div>
+    </section>
+
+    <section class="card links" style="margin-top:16px;">
+      <h2>Links do projeto</h2>
+      <p><a href="https://github.com/lazzsch/IRP-Bot" target="_blank" rel="noopener noreferrer">Repositório no GitHub</a></p>
+      <p><a href="https://portal.irishimmigration.ie/en/appointments/" target="_blank" rel="noopener noreferrer">Portal IRP (English)</a></p>
+    </section>
+  </div>
+</body>
+</html>
+

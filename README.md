@@ -44,6 +44,24 @@ I went through that pain, built this system to help myself, and decided to share
 4. Click `Load unpacked`.
 5. Select this project folder: `C:\Users\walmo\Downloads\irp-bot-v3`.
 
+## Hybrid distribution (for faster user onboarding)
+
+If Chrome Web Store review is still pending, use this dual path:
+
+1. Primary: Chrome Web Store (Unlisted) link.
+2. Fallback: Tampermonkey + Userscript Lite.
+
+Resources:
+
+- Plan: `docs/hybrid-distribution-plan.md`
+- Install page (EN): `docs/install-guide.html`
+- Install page (PT-BR): `docs/install-guide-pt.html`
+- Userscript: `userscript/IRP-Bot-Lite.user.js`
+
+Raw userscript URL:
+
+`https://raw.githubusercontent.com/lazzsch/IRP-Bot/main/userscript/IRP-Bot-Lite.user.js`
+
 ## Quick usage
 
 1. Open the IRP reschedule page.
