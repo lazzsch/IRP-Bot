@@ -1,4 +1,4 @@
-# IRP Bot V3
+# IRP Bot
 
 Chrome extension to help monitor and reschedule IRP appointments on the Ireland portal.
 
